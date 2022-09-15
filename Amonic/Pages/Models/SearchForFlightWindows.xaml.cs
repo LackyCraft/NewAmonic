@@ -32,7 +32,7 @@ namespace Amonic.Pages.Models
                 ComboBoxAirportFrom.ItemsSource = AmonicEntities.GetContext().Airports.ToList();
                 ComboBoxAirportTo.ItemsSource = AmonicEntities.GetContext().Airports.ToList();
                 ComboBoxCabinType.ItemsSource = AmonicEntities.GetContext().CabinTypes.ToList();
-                schedulesList = AmonicEntities.GetContext().Schedules.ToList();
+                schedulesList = AmonicEntities.GetContext().Schedules.Where(i => i.Confirmed == true).ToList();
             }
             catch
             {
@@ -58,24 +58,25 @@ namespace Amonic.Pages.Models
             {
                 if(ComboBoxTypeTicket.SelectedIndex == 0)
                 {
-                    DataGridOUT.Visibility = Visibility.Hidden;
+                    DataGridOUT.Visibility = Visibility.Visible;
                 }
                 if(ComboBoxTypeTicket.SelectedIndex == 1)
                 {
-                    DataGridOUT.Visibility = Visibility.Visible;
+                    DataGridOUT.Visibility = Visibility.Hidden;
                 }
             }
         }
 
         public void UpdateList()
         {
-            schedulesList = AmonicEntities.GetContext().Schedules.ToList();
+            schedulesList = AmonicEntities.GetContext().Schedules.Where(i => i.Confirmed == true).ToList();
+            DrawDataGrid();
         }
 
         private void DrawDataGrid()
         {
-            List <Schedules> listSortTo = AmonicEntities.GetContext().Schedules.ToList();
-            List <Schedules> listSortFrom = AmonicEntities.GetContext().Schedules.ToList();
+            List <Schedules> listSortTo = schedulesList;
+            List <Schedules> listSortFrom = schedulesList;
 
             
             int idAirportsTo, idAirportsFrom;
@@ -165,7 +166,7 @@ namespace Amonic.Pages.Models
                     }
                     else
                     {
-                        messageError = "Не выбран тип класса билета";
+                        messageError += "\nНе выбран тип класса билета";
                     }
 
 
@@ -190,12 +191,12 @@ namespace Amonic.Pages.Models
                             }
                             else
                             {
-                                messageError = "На обратный рейс нехватает мест для " + PrintCountPassager + " пассажиров";
+                                messageError += "\nНа обратный рейс нехватает мест для " + PrintCountPassager + " пассажиров";
                             }
                         }
                     }
 
-                    if (messageError.Length > 2)
+                    if (messageError.Length < 2)
                     {
                         if (DataGridOUT.Visibility == Visibility.Visible && DataGridOUT.SelectedItems.Count > 0)
                         {
@@ -203,10 +204,14 @@ namespace Amonic.Pages.Models
                             BlockTicket newPage = new BlockTicket(selectSchedles, selectSchedlesFrom, int.Parse(ComboBoxCabinType.SelectedValue.ToString()), countPasseger);
                             newPage.Show();
                         }
-                        else if (DataGridOUT.Visibility == Visibility.Hidden && DataGridTo.SelectedItems.Count > 0)
+                        else if (DataGridOUT.Visibility == Visibility.Hidden)
                         {
                             BlockTicket newPage = new BlockTicket(selectSchedles, null, int.Parse(ComboBoxCabinType.SelectedValue.ToString()), countPasseger);
                             newPage.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Не выбран белет в обратную сторону, если вы хотете взять билет только в одну сторону - выберите параметр \"one way\"");
                         }
                     }
                     else

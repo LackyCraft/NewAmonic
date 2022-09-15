@@ -23,7 +23,7 @@
                 <ComboBox SelectionChanged="selectionChangedComboBoxAiraports"  x:Name="ComboBoxAirportTo" Width="100" Margin="15,0,15,0" DisplayMemberPath="Name" SelectedValuePath="ID"/>
 
                 <TextBlock Text="Cobain Type" VerticalAlignment="Center"  Margin="15,0,0,0"/>
-                <ComboBox SelectionChanged="selectionChangedComboBoxAiraports"  x:Name="ComboBoxCabinType" Width="100" Margin="15,0,15,0" DisplayMemberPath="Name" SelectedValuePath="ID"/>
+                <ComboBox x:Name="ComboBoxCabinType" Width="100" Margin="15,0,15,0" DisplayMemberPath="Name" SelectedValuePath="ID"/>
             </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <TextBlock Text="Type Ticket"/>
