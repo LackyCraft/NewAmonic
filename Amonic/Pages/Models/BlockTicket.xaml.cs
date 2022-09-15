@@ -68,13 +68,32 @@ namespace Amonic.Pages.Models
 
         private void ClickSaveTocket(object sender, RoutedEventArgs e)
         {
-            
+            decimal price = 0;
             for (int i = 0; i < DataGridPassager.Items.Count;i++)
             {
                 Tickets newTickets = (DataGridPassager.Items[i] as Tickets);
                 AmonicEntities.GetContext().Tickets.Add(newTickets);
                 AmonicEntities.GetContext().SaveChanges();
+                if(idCabainSelect == 1)
+                    price += newTickets.Schedules.EconomyPrice;
+                if (idCabainSelect == 2)
+                    price += newTickets.Schedules.EconomyPrice*(1.35m);
+                if (idCabainSelect == 3)
+                    price += newTickets.Schedules.EconomyPrice * (1.35m)*1.3m;
             }
+            try
+            {
+                (new ConfirmationWindow(price)).Show();
+            }
+            catch
+            {
+                MessageError.PrintErrorDBConect();
+            }
+
+            if(DataGridPassager.Items.Count > 0)
+                MessageBox.Show("Билеты были успешно забронированы, код брони:" + (DataGridPassager.Items[0] as Tickets).BookingReference);
+            this.Close();
+
         }
 
         private void ClickBackSearch(object sender, RoutedEventArgs e)
@@ -115,6 +134,23 @@ namespace Amonic.Pages.Models
                 newTicket.Confirmed = true;
 
                 DataGridPassager.Items.Add(newTicket);
+
+                if (schedulesOUTSelect != null)
+                {
+                    newTicket.UserID = CurrentUser.ID;
+                    newTicket.ScheduleID = schedulesToSelect.ID;
+                    newTicket.CabinTypeID = idCabainSelect;
+                    newTicket.Firstname = TextBoxFirstName.Text;
+                    newTicket.Lastname = TextBoxLastName.Text;
+                    newTicket.Phone = TextBoxPhone.Text;
+                    newTicket.PassportNumber = TextBoxPasportNum.Text;
+                    newTicket.PassportCountryID = int.Parse(TextBoxPasportCountry.SelectedValue.ToString());
+                    newTicket.BookingReference = TextBoxLastName.Text[0] + TextBoxFirstName.Text;
+                    newTicket.Confirmed = true;
+
+                    DataGridPassager.Items.Add(newTicket);
+                }
+
             }
             else
             {

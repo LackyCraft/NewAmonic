@@ -1,0 +1,31 @@
+﻿<Window x:Class="Amonic.Pages.Models.ConfirmationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Amonic.Pages.Models"
+        mc:Ignorable="d"
+        Title="ConfirmationWindow" MinHeight="400" MinWidth="400" MaxHeight="400" MaxWidth="400">
+    <Grid>
+        <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Count price: "/>
+            <TextBlock Text="" x:Name="countPrice"/>
+            <TextBlock Text=" $"/>
+            </StackPanel>
+
+            <TextBlock Text="Paid using:"/>
+            <RadioButton Content="Credit card"/>
+            <RadioButton Content="Cash"/>
+            <RadioButton Content="Vaucher"/>
+
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Issue" Click="ClickClose"/>
+                <Button Content="Close" Margin="15,0,0,0" Click="ClickClose"/>
+            </StackPanel>
+
+        </StackPanel>
+
+
+    </Grid>
+</Window>
