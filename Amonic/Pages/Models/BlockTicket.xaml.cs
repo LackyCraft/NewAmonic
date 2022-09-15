@@ -24,5 +24,10 @@ namespace Amonic.Pages.Models
         {
             InitializeComponent();
         }
+
+        private void ClickAddPassenger(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

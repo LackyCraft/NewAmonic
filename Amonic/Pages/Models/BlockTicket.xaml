@@ -5,13 +5,108 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Amonic.Pages.Models"
         mc:Ignorable="d"
-        Title="BlockTicket" Height="450" Width="800">
+        Title="BlockTicket" Height="450" Width="610" MaxHeight="450" MaxWidth="610" MinHeight="450" MinWidth="610">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <StackPanel HorizontalAlignment="Right" Margin="0,0,15,0">
+                <TextBlock Text="Outbound flight detelis"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="From: "/>
+                    <TextBlock Text="No Found" x:Name="TextBoxToFrom" FontWeight="Bold" />
+                    
+                    <TextBlock Text="To: " Margin="15,0,0,0"/>
+                    <TextBlock Text="No Found" x:Name="TextBoxToTo" FontWeight="Bold" />
+
+                    <TextBlock Text="Cabin Type: " Margin="15,0,0,0"/>
+                    <TextBlock Text="No Found" x:Name="TextBoxCabinTypeTo" FontWeight="Bold" />
+
+                    <TextBlock Text="Date: " Margin="15,0,0,0"/>
+                    <TextBlock Text="No Found" x:Name="TextBoxDateTo" FontWeight="Bold" />
+
+                    <TextBlock Text="Flyght number: " Margin="15,0,0,0"/>
+                    <TextBlock Text="No Found" x:Name="TextBoxCabinFlightNumberTo" FontWeight="Bold" />
+                </StackPanel>
+
+                <TextBlock Text="Return flight detalis" Margin="0,15,0,0"/>
+                <StackPanel Orientation="Horizontal" x:Name="StackPanelReturn">
+                    <TextBlock Text="From: "/>
+                    <TextBlock Text="No Found" x:Name="TextBoxToFromReturn" FontWeight="Bold" />
+
+                    <TextBlock Text="To: " Margin="15,0,0,0"/>
+                    <TextBlock Text="No Found" x:Name="TextBoxToReturn" FontWeight="Bold" />
+
+                    <TextBlock Text="Cabin Type: " Margin="15,0,0,0"/>
+                    <TextBlock Text="No Found" x:Name="TextBoxCabinTypeReturn" FontWeight="Bold" />
+
+                    <TextBlock Text="Date: " Margin="15,0,0,0"/>
+                    <TextBlock Text="No Found" x:Name="TextBoxDateReturn" FontWeight="Bold" />
+
+                    <TextBlock Text="Flyght number: " Margin="15,0,0,0"/>
+                    <TextBlock Text="No Found" x:Name="TextBoxCabinFlightNumberReturn" FontWeight="Bold" />
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel Margin="0,0,15,0">
+                <StackPanel Orientation="Horizontal" Margin="15,0,0,0" HorizontalAlignment="Right">
+                    <TextBlock Text="FirstName:" VerticalAlignment="Center"/>
+                    <TextBox Width="100" Margin="15,0,0,0" x:Name="TextBoxFirstName"/>
+
+                    <TextBlock Text="LastName:" Margin="15,0,0,0" VerticalAlignment="Center"/>
+                    <TextBox Width="100" Margin="15,0,0,0" x:Name="TextBoxLastName"/>
+
+                    <TextBlock Text="Birthday:" Margin="15,0,0,0" VerticalAlignment="Center"/>
+                    <DatePicker Width="100" Margin="15,0,0,0" x:Name="DataPickerBirthday"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="15,15,0,0" HorizontalAlignment="Right">
+                    <TextBlock Text="Pasport number:" VerticalAlignment="Center"/>
+                    <TextBox Width="100" Margin="15,0,0,0" x:Name="TextBoxPasportNum"/>
+
+                    <TextBlock Text="Pasport country:" Margin="15,0,0,0" VerticalAlignment="Center"/>
+                    <ComboBox Width="90" Margin="15,0,0,0" x:Name="TextBoxPasportCountry"/>
+
+                    <TextBlock Text="Phone:" Margin="15,0,0,0" VerticalAlignment="Center"/>
+                    <TextBox Width="100" Margin="15,0,0,0" x:Name="TextBoxPhone"/>
+                </StackPanel>
+
+                <Button Content="Add passager" Width="150" Margin="0,15,0,0" HorizontalAlignment="Right"/>
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <DataGrid x:Name="DataGridPassager" AutoGenerateColumns="False" SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Firstname" Binding="{Binding }" Width="*"/>
+                    <DataGridTextColumn Header="LastName" Binding="{Binding }" Width="*"/>
+                    <DataGridTextColumn Header="Birthday" Binding="{Binding Date, StringFormat={}{0:dd/MM/yyyy}}" Width="70"/>
+                    <DataGridTextColumn Header="Pasport number" Binding="{Binding }" Width="*"/>
+                    <DataGridTextColumn Header="Pasport country" Binding="{Binding }" Width="*"/>
+                    <DataGridTextColumn Header="Phone" Binding="{Binding }" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button HorizontalAlignment="Right" Margin="0,0,15,0" Grid.Row="1" Width="100" Height="20" Content="Add passenger" Click="ClickAddPassenger"/>
+        </Grid>
+
+        <StackPanel HorizontalAlignment="Center" Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center">
+            <Button Content="Back to search for flights"/>
+            <Button Content="Confirm booking" Margin="15,0,0,0"/>
+        </StackPanel>
+        
         
     </Grid>
 </Window>
