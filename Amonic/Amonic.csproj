@@ -101,6 +101,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Models\SearchTicketsWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Models\shedulerWindows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -190,6 +194,9 @@
     </Compile>
     <Compile Include="Pages\Models\SearchForFlightWindows.xaml.cs">
       <DependentUpon>SearchForFlightWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Models\SearchTicketsWindows.xaml.cs">
+      <DependentUpon>SearchTicketsWindows.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Models\shedulerWindows.xaml.cs">
       <DependentUpon>shedulerWindows.xaml</DependentUpon>

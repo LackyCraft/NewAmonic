@@ -128,5 +128,11 @@ namespace Amonic
             this.Close();
 
         }
+
+        private void ClickSearchTickets(object sender, RoutedEventArgs e)
+        {
+            (new SearchTicketsWindows()).Show();
+        }
+
     }
 }

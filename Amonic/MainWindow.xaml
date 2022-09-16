@@ -21,10 +21,12 @@
 
             <TextBlock Text="" HorizontalAlignment="Center" x:Name="TextBlockTimerBlock"/>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0">
                 <Button Content="Login" Width="100" Click="ClickButtonLogin" x:Name="ButtonLogin"/>
                 <Button Content="Exit" Width="100" Margin="15,0,0,0" Click="ClickExit"/>
             </StackPanel>
+
+            <Button Content="SearchTickets" HorizontalAlignment="Right" Width="215" Margin="0,15,0,0" Click="ClickSearchTickets"/>
 
         </StackPanel>
 
