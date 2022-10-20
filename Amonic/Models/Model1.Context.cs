@@ -12,10 +12,10 @@ namespace Amonic.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Runtime.InteropServices;
-
+    
     public partial class AmonicEntities : DbContext
     {
+
         private static AmonicEntities _getContext;
 
         public static AmonicEntities GetContext()
@@ -29,7 +29,7 @@ namespace Amonic.Models
             : base("name=AmonicEntities")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

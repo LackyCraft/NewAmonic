@@ -22,6 +22,7 @@ namespace Amonic
     /// </summary>
     /// 
     using Models;
+    using System.Security.Cryptography;
 
     public partial class MainWindow : Window
     {
@@ -55,8 +56,9 @@ namespace Amonic
         {
             try
             {
-                List<Users> searchUser = AmonicEntities.GetContext().Users.Where(i => i.Email == TextBoxLogin.Text && i.Password == TextBoxPassword.Password).ToList();
-
+                string MD5HashString = String.Join("", MD5.Create().ComputeHash(Encoding.Unicode.GetBytes(TextBoxPassword.Password)).Select(hashbyte => hashbyte.ToString("x2")));
+                List<Users> searchUser = AmonicEntities.GetContext().Users.Where(i => i.Email == TextBoxLogin.Text && i.Password == MD5HashString).ToList();
+                
             if (searchUser.Count > 0)
             {
                 if (searchUser[0].Active == true)

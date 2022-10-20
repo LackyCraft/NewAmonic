@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Amonic.Pages.Models;
+using System.Data.Entity;
 
 namespace Amonic.Pages
 {
@@ -25,7 +26,19 @@ namespace Amonic.Pages
             InitializeComponent();
             try
             {
-                ComboBoxType.ItemsSource = AmonicEntities.GetContext().Offices.ToList();
+                Offices newOf = new Offices();
+                newOf.Title = "Все типы";
+                newOf.ID = -2;
+
+                List<Offices> officesList = new List<Offices>().ToList();
+                officesList.Add(newOf);
+
+                foreach (Offices item in AmonicEntities.GetContext().Offices.ToList() ) {
+                    officesList.Add(item);
+                }
+
+                ComboBoxType.ItemsSource = officesList;
+               
             }
             catch
             {
@@ -39,12 +52,17 @@ namespace Amonic.Pages
         {
             List<Users> FilterUsersList = usersList;
             DataGridUsersList.Items.Clear();
+
+
             if (ComboBoxType.SelectedIndex != -1)
-            {
-                int idOffice = int.Parse(ComboBoxType.SelectedValue.ToString());
-                FilterUsersList = FilterUsersList.Where(i => i.RoleID == idOffice).ToList();
-            }
-            foreach (Users uesrItem in usersList)
+                if (ComboBoxType.SelectedValue.ToString() != "-2")
+                {
+                    {
+                        int idOffice = int.Parse(ComboBoxType.SelectedValue.ToString());
+                        FilterUsersList = FilterUsersList.Where(i => i.OfficeID == idOffice).ToList();
+                    }
+                }
+            foreach (Users uesrItem in FilterUsersList)
             {
                 DataGridUsersList.Items.Add(uesrItem);
             }
@@ -67,8 +85,8 @@ namespace Amonic.Pages
         {
             try
             {
-                usersList = AmonicEntities.GetContext().Users.ToList();
-                usersList = usersList.Where(i => i.OfficeID == int.Parse(ComboBoxType.SelectedValue.ToString())).ToList();
+                //usersList = AmonicEntities.GetContext().Users.ToList();
+                //usersList = usersList.Where(i => i.OfficeID == int.Parse(ComboBoxType.SelectedValue.ToString())).ToList();
                 drawDataGrid();
             }
             catch

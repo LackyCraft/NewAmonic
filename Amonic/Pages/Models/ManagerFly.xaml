@@ -64,8 +64,8 @@
                 <DataGridTextColumn IsReadOnly="True" Width="*" Header="Aircrafts" Binding="{Binding Aircrafts.Name}"/>
 
                 <DataGridTextColumn IsReadOnly="True" Width="*" Header="EconomyPrice" Binding="{Binding EconomyPrice}"/>
-                <DataGridTextColumn IsReadOnly="True" Width="*" Header="BuisnesPrice" Binding="{Binding EconomyPrice}"/>
-                <DataGridTextColumn IsReadOnly="True" Width="*" Header="FirstClass" Binding="{Binding EconomyPrice}"/>
+                <DataGridTextColumn IsReadOnly="True" Width="*" Header="BuisnesPrice" Binding="{Binding BuisnesClass}"/>
+                <DataGridTextColumn IsReadOnly="True" Width="*" Header="FirstClass" Binding="{Binding FirstClass}"/>
 
             </DataGrid.Columns>
         </DataGrid>

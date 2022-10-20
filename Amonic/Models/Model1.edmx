@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище AmonicModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище Amonic1Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Aircrafts">
           <Key>
             <PropertyRef Name="ID" />
@@ -113,6 +113,8 @@
           <Property Name="EconomyPrice" Type="money" Nullable="false" />
           <Property Name="Confirmed" Type="bit" Nullable="false" />
           <Property Name="FlightNumber" Type="nvarchar" MaxLength="10" />
+          <Property Name="BuisnesClass" Type="numeric" Precision="23" Scale="6" StoreGeneratedPattern="Computed" />
+          <Property Name="FirstClass" Type="numeric" Precision="26" Scale="7" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -367,7 +369,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище AmonicModelContainer">
+        <EntityContainer Name="Хранилище Amonic1ModelContainer">
           <EntitySet Name="Aircrafts" EntityType="Self.Aircrafts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Airports" EntityType="Self.Airports" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Amenities" EntityType="Self.Amenities" Schema="dbo" store:Type="Tables" />
@@ -457,7 +459,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AmonicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Amonic1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Aircrafts">
           <Key>
             <PropertyRef Name="ID" />
@@ -577,6 +579,8 @@
           <Property Name="EconomyPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="Confirmed" Type="Boolean" Nullable="false" />
           <Property Name="FlightNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="BuisnesClass" Type="Decimal" Precision="23" Scale="6" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="FirstClass" Type="Decimal" Precision="26" Scale="7" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="Aircrafts" Relationship="Self.FK_Schedule_AirCraft" FromRole="Schedules" ToRole="Aircrafts" />
           <NavigationProperty Name="Routes" Relationship="Self.FK_Schedule_Routes" FromRole="Schedules" ToRole="Routes" />
           <NavigationProperty Name="Tickets" Relationship="Self.FK_Ticket_Schedule" FromRole="Schedules" ToRole="Tickets" />
@@ -910,9 +914,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище AmonicModelContainer" CdmEntityContainer="AmonicEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Amonic1ModelContainer" CdmEntityContainer="AmonicEntities">
           <EntitySetMapping Name="Aircrafts">
-            <EntityTypeMapping TypeName="AmonicModel.Aircrafts">
+            <EntityTypeMapping TypeName="Amonic1Model.Aircrafts">
               <MappingFragment StoreEntitySet="Aircrafts">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -924,7 +928,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Airports">
-            <EntityTypeMapping TypeName="AmonicModel.Airports">
+            <EntityTypeMapping TypeName="Amonic1Model.Airports">
               <MappingFragment StoreEntitySet="Airports">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CountryID" ColumnName="CountryID" />
@@ -934,7 +938,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Amenities">
-            <EntityTypeMapping TypeName="AmonicModel.Amenities">
+            <EntityTypeMapping TypeName="Amonic1Model.Amenities">
               <MappingFragment StoreEntitySet="Amenities">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Service" ColumnName="Service" />
@@ -943,7 +947,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AmenitiesTickets">
-            <EntityTypeMapping TypeName="AmonicModel.AmenitiesTickets">
+            <EntityTypeMapping TypeName="Amonic1Model.AmenitiesTickets">
               <MappingFragment StoreEntitySet="AmenitiesTickets">
                 <ScalarProperty Name="AmenityID" ColumnName="AmenityID" />
                 <ScalarProperty Name="TicketID" ColumnName="TicketID" />
@@ -952,7 +956,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CabinTypes">
-            <EntityTypeMapping TypeName="AmonicModel.CabinTypes">
+            <EntityTypeMapping TypeName="Amonic1Model.CabinTypes">
               <MappingFragment StoreEntitySet="CabinTypes">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -960,7 +964,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Countries">
-            <EntityTypeMapping TypeName="AmonicModel.Countries">
+            <EntityTypeMapping TypeName="Amonic1Model.Countries">
               <MappingFragment StoreEntitySet="Countries">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -968,7 +972,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="logService">
-            <EntityTypeMapping TypeName="AmonicModel.logService">
+            <EntityTypeMapping TypeName="Amonic1Model.logService">
               <MappingFragment StoreEntitySet="logService">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="log" ColumnName="log" />
@@ -979,7 +983,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Offices">
-            <EntityTypeMapping TypeName="AmonicModel.Offices">
+            <EntityTypeMapping TypeName="Amonic1Model.Offices">
               <MappingFragment StoreEntitySet="Offices">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CountryID" ColumnName="CountryID" />
@@ -990,7 +994,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="AmonicModel.Roles">
+            <EntityTypeMapping TypeName="Amonic1Model.Roles">
               <MappingFragment StoreEntitySet="Roles">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -998,7 +1002,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Routes">
-            <EntityTypeMapping TypeName="AmonicModel.Routes">
+            <EntityTypeMapping TypeName="Amonic1Model.Routes">
               <MappingFragment StoreEntitySet="Routes">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DepartureAirportID" ColumnName="DepartureAirportID" />
@@ -1009,7 +1013,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Schedules">
-            <EntityTypeMapping TypeName="AmonicModel.Schedules">
+            <EntityTypeMapping TypeName="Amonic1Model.Schedules">
               <MappingFragment StoreEntitySet="Schedules">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -1019,11 +1023,13 @@
                 <ScalarProperty Name="EconomyPrice" ColumnName="EconomyPrice" />
                 <ScalarProperty Name="Confirmed" ColumnName="Confirmed" />
                 <ScalarProperty Name="FlightNumber" ColumnName="FlightNumber" />
+                <ScalarProperty Name="BuisnesClass" ColumnName="BuisnesClass" />
+                <ScalarProperty Name="FirstClass" ColumnName="FirstClass" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="AmonicModel.sysdiagrams">
+            <EntityTypeMapping TypeName="Amonic1Model.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1034,7 +1040,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tickets">
-            <EntityTypeMapping TypeName="AmonicModel.Tickets">
+            <EntityTypeMapping TypeName="Amonic1Model.Tickets">
               <MappingFragment StoreEntitySet="Tickets">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
@@ -1051,7 +1057,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TrackUser">
-            <EntityTypeMapping TypeName="AmonicModel.TrackUser">
+            <EntityTypeMapping TypeName="Amonic1Model.TrackUser">
               <MappingFragment StoreEntitySet="TrackUser">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -1061,7 +1067,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="AmonicModel.Users">
+            <EntityTypeMapping TypeName="Amonic1Model.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
@@ -1075,7 +1081,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="AmenitiesCabinType" TypeName="AmonicModel.AmenitiesCabinType" StoreEntitySet="AmenitiesCabinType">
+          <AssociationSetMapping Name="AmenitiesCabinType" TypeName="Amonic1Model.AmenitiesCabinType" StoreEntitySet="AmenitiesCabinType">
             <EndProperty Name="Amenities">
               <ScalarProperty Name="ID" ColumnName="AmenityID" />
             </EndProperty>

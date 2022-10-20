@@ -29,7 +29,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <ComboBox x:Name="ComboBoxType" Width="200" HorizontalAlignment="Left" DisplayMemberPath="Title" SelectedValuePath="ID" Height="30" VerticalAlignment="Center" Margin="15,0,0,0"/>
+            <ComboBox x:Name="ComboBoxType" Width="200" HorizontalAlignment="Left" SelectionChanged="selectionChangedComboBoxType" DisplayMemberPath="Title" SelectedValuePath="ID" Height="30" VerticalAlignment="Center" Margin="15,0,0,0"/>
 
             <DataGrid x:Name="DataGridUsersList" AutoGenerateColumns="False" Grid.Row="2" Margin="15">
                 <DataGrid.CellStyle>

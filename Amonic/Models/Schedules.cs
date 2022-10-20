@@ -28,6 +28,8 @@ namespace Amonic.Models
         public decimal EconomyPrice { get; set; }
         public bool Confirmed { get; set; }
         public string FlightNumber { get; set; }
+        public Nullable<decimal> BuisnesClass { get; set; }
+        public Nullable<decimal> FirstClass { get; set; }
     
         public virtual Aircrafts Aircrafts { get; set; }
         public virtual Routes Routes { get; set; }

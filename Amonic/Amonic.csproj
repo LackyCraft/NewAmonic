@@ -85,6 +85,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Models\ApplyScheduleChangesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Models\BlockTicket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -181,6 +185,9 @@
     </Compile>
     <Compile Include="Pages\AdminPanelWindow.xaml.cs">
       <DependentUpon>AdminPanelWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Models\ApplyScheduleChangesWindow.xaml.cs">
+      <DependentUpon>ApplyScheduleChangesWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Models\BlockTicket.xaml.cs">
       <DependentUpon>BlockTicket.xaml</DependentUpon>

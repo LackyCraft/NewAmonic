@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -68,7 +69,7 @@ namespace Amonic.Pages
                     newUser.FirstName = TextBoxFirstName.Text;
                     newUser.LastName = TextBoxLastName.Text;
                     newUser.Birthdate = dateBirthday;
-                    newUser.Password = PasswordBoxPassword.Password;
+                    newUser.Password = String.Join("", MD5.Create().ComputeHash(Encoding.Unicode.GetBytes(PasswordBoxPassword.Password)).Select(hashbyte => hashbyte.ToString("x2")));
                     newUser.RoleID = 2;
                     newUser.OfficeID = int.Parse(ComboBoxOffice.SelectedValue.ToString());
                     newUser.Active = true;

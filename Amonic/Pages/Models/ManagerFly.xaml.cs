@@ -100,7 +100,8 @@ namespace Amonic.Pages.Models
 
         private void clickImport(object sender, RoutedEventArgs e)
         {
-
+            var window = new ApplyScheduleChangesWindow();
+            window.ShowDialog();
         }
 
         private void selectionChangedComboBoxAiraports(object sender, SelectionChangedEventArgs e)

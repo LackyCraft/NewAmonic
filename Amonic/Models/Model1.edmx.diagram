@@ -4,38 +4,38 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="638eb6dc5d2f46d0970ff0d7cc54ca26" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="AmonicModel.Aircrafts" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AmonicModel.Airports" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AmonicModel.Amenities" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
-        <EntityTypeShape EntityType="AmonicModel.AmenitiesTickets" Width="1.5" PointX="12" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="AmonicModel.CabinTypes" Width="1.5" PointX="7.5" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AmonicModel.Countries" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AmonicModel.logService" Width="1.5" PointX="7.5" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AmonicModel.Offices" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="AmonicModel.Roles" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AmonicModel.Routes" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AmonicModel.Schedules" Width="1.5" PointX="7.5" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AmonicModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AmonicModel.Tickets" Width="1.5" PointX="9.75" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="AmonicModel.TrackUser" Width="1.5" PointX="7.5" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AmonicModel.Users" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
-        <AssociationConnector Association="AmonicModel.FK_Schedule_AirCraft" ManuallyRouted="false" />
-        <AssociationConnector Association="AmonicModel.FK_AirPort_Country" ManuallyRouted="false" />
-        <AssociationConnector Association="AmonicModel.FK_Routes_Airports2" ManuallyRouted="false" />
-        <AssociationConnector Association="AmonicModel.FK_Routes_Airports3" ManuallyRouted="false" />
-        <AssociationConnector Association="AmonicModel.FK_AmenitiesTickets_Amenities" ManuallyRouted="false" />
-        <AssociationConnector Association="AmonicModel.FK_AmenitiesTickets_Tickets" ManuallyRouted="false" />
-        <AssociationConnector Association="AmonicModel.FK_Ticket_TravelClass" ManuallyRouted="false" />
-        <AssociationConnector Association="AmonicModel.FK_Office_Country" ManuallyRouted="false" />
-        <AssociationConnector Association="AmonicModel.logService_FK" ManuallyRouted="false" />
-        <AssociationConnector Association="AmonicModel.FK_Users_Offices" ManuallyRouted="false" />
-        <AssociationConnector Association="AmonicModel.FK_Users_Roles" ManuallyRouted="false" />
-        <AssociationConnector Association="AmonicModel.FK_Schedule_Routes" ManuallyRouted="false" />
-        <AssociationConnector Association="AmonicModel.FK_Ticket_Schedule" ManuallyRouted="false" />
-        <AssociationConnector Association="AmonicModel.FK_Ticket_User" ManuallyRouted="false" />
-        <AssociationConnector Association="AmonicModel.FK_TrackUser_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="AmonicModel.AmenitiesCabinType" ManuallyRouted="false" />
+      <Diagram DiagramId="b53a52886fc34e1581d6e48c81adcf44" Name="Diagram1">
+        <EntityTypeShape EntityType="Amonic1Model.Aircrafts" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Amonic1Model.Airports" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Amonic1Model.Amenities" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Amonic1Model.AmenitiesTickets" Width="1.5" PointX="12" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Amonic1Model.CabinTypes" Width="1.5" PointX="7.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="Amonic1Model.Countries" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Amonic1Model.logService" Width="1.5" PointX="7.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Amonic1Model.Offices" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="Amonic1Model.Roles" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Amonic1Model.Routes" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Amonic1Model.Schedules" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Amonic1Model.sysdiagrams" Width="1.5" PointX="9.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Amonic1Model.Tickets" Width="1.5" PointX="9.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Amonic1Model.TrackUser" Width="1.5" PointX="7.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Amonic1Model.Users" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <AssociationConnector Association="Amonic1Model.FK_Schedule_AirCraft" ManuallyRouted="false" />
+        <AssociationConnector Association="Amonic1Model.FK_AirPort_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="Amonic1Model.FK_Routes_Airports2" ManuallyRouted="false" />
+        <AssociationConnector Association="Amonic1Model.FK_Routes_Airports3" ManuallyRouted="false" />
+        <AssociationConnector Association="Amonic1Model.FK_AmenitiesTickets_Amenities" ManuallyRouted="false" />
+        <AssociationConnector Association="Amonic1Model.FK_AmenitiesTickets_Tickets" ManuallyRouted="false" />
+        <AssociationConnector Association="Amonic1Model.FK_Ticket_TravelClass" ManuallyRouted="false" />
+        <AssociationConnector Association="Amonic1Model.FK_Office_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="Amonic1Model.logService_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Amonic1Model.FK_Users_Offices" ManuallyRouted="false" />
+        <AssociationConnector Association="Amonic1Model.FK_Users_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="Amonic1Model.FK_Schedule_Routes" ManuallyRouted="false" />
+        <AssociationConnector Association="Amonic1Model.FK_Ticket_Schedule" ManuallyRouted="false" />
+        <AssociationConnector Association="Amonic1Model.FK_Ticket_User" ManuallyRouted="false" />
+        <AssociationConnector Association="Amonic1Model.FK_TrackUser_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="Amonic1Model.AmenitiesCabinType" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
