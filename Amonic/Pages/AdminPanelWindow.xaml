@@ -18,9 +18,9 @@
             <Button Content="Enable/Disable User" Margin="15,0,0,0" Click="statusUser"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal">
-            <Button Content="AddUser" Width="100" Height="30" VerticalAlignment="Center" Margin="15,0,0,0" Click="ClickAddUsers"/>
-            <Button Content="Exit" Width="100" Height="30" VerticalAlignment="Center" Margin="15,0,0,0"/>
+        <StackPanel Orientation="Horizontal" Margin="15">
+            <Button Content="AddUser" Width="100" VerticalAlignment="Center" Margin="15,0,0,0" Click="ClickAddUsers"/>
+            <Button Content="Exit" Width="100" VerticalAlignment="Center" Margin="15,0,0,0" Click="clickExit"/>
         </StackPanel>
 
         <Grid Grid.Row="1">
@@ -29,7 +29,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <ComboBox x:Name="ComboBoxType" Width="200" HorizontalAlignment="Left" SelectionChanged="selectionChangedComboBoxType" DisplayMemberPath="Title" SelectedValuePath="ID" Height="30" VerticalAlignment="Center" Margin="15,0,0,0"/>
+            <ComboBox x:Name="ComboBoxType" Width="200" HorizontalAlignment="Left" SelectionChanged="selectionChangedComboBoxType" DisplayMemberPath="Title" SelectedValuePath="ID" VerticalAlignment="Center" Margin="15"/>
 
             <DataGrid x:Name="DataGridUsersList" AutoGenerateColumns="False" Grid.Row="2" Margin="15">
                 <DataGrid.CellStyle>
