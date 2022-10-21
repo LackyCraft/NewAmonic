@@ -161,7 +161,7 @@ namespace Amonic.Pages.Models
                         }
                         else
                         {
-                            messageError = "На выбранном рейсе туда нехватает мест для " + PrintCountPassager + " пассажиров";
+                            messageError = "На выбранный рейс \"Туда\" нехватает мест для " + PrintCountPassager + " пассажиров";
                         }
                     }
                     else

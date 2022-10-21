@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,7 +26,7 @@ namespace Amonic.Pages.Models
 
         int idCabainSelect, countPassagerSelect;
         Schedules schedulesToSelect;
-        Schedules schedulesOUTSelect;
+        Schedules schedulesOUTSelect = null;
 
         public BlockTicket(Schedules schedulesTo, Schedules schedulesOUT, int idCabain, int countPassager)
         {
@@ -36,6 +37,7 @@ namespace Amonic.Pages.Models
                 countPassagerSelect = countPassager;
                 schedulesToSelect = schedulesTo;
                 schedulesOUTSelect = schedulesOUT;
+
                 TextBoxPasportCountry.ItemsSource = AmonicEntities.GetContext().Countries.ToList();
 
                 TextBoxToFrom.Text = schedulesTo.Routes.Airports1.Name;
@@ -46,11 +48,11 @@ namespace Amonic.Pages.Models
 
                 if (schedulesOUT != null)
                 {
-                    TextBoxToReturn.Text = schedulesTo.Routes.Airports1.Name;
-                    TextBoxToFromReturn.Text = schedulesTo.Routes.Airports.Name;
+                    TextBoxToReturn.Text = schedulesOUT.Routes.Airports1.Name;
+                    TextBoxToFromReturn.Text = schedulesOUT.Routes.Airports.Name;
                     TextBoxCabinTypeReturn.Text = AmonicEntities.GetContext().CabinTypes.Find(idCabain).Name;
-                    TextBoxDateReturn.Text = schedulesTo.Date.ToString();
-                    TextBoxCabinFlightNumberReturn.Text = schedulesTo.FlightNumber;
+                    TextBoxDateReturn.Text = schedulesOUT.Date.ToString();
+                    TextBoxCabinFlightNumberReturn.Text = schedulesOUT.FlightNumber;
                 }
                 else
                 {
@@ -72,8 +74,24 @@ namespace Amonic.Pages.Models
             for (int i = 0; i < DataGridPassager.Items.Count;i++)
             {
                 Tickets newTickets = (DataGridPassager.Items[i] as Tickets);
+                //Tickets newTicket = new Tickets();
+
+                MessageBox.Show(newTickets.ScheduleID.ToString());
+
+                /*
+                newTicket.UserID = newTickets.UserID;
+                newTicket.ScheduleID = newTickets.Schedules.ID;
+                newTicket.CabinTypeID = newTickets.CabinTypeID;
+                newTicket.Firstname = newTickets.Firstname;
+                newTicket.Lastname = newTickets.Lastname;
+                newTicket.Phone = newTickets.Phone;
+                newTicket.PassportNumber = newTickets.PassportNumber;
+                newTicket.PassportCountryID = newTickets.PassportCountryID;
+                newTicket.BookingReference = newTickets.BookingReference;
+                newTicket.Confirmed = true; */
+                
                 AmonicEntities.GetContext().Tickets.Add(newTickets);
-                AmonicEntities.GetContext().SaveChanges();
+                AmonicEntities.GetContext().SaveChanges(); 
                 if(idCabainSelect == 1)
                     price += newTickets.Schedules.EconomyPrice;
                 if (idCabainSelect == 2)
@@ -112,43 +130,47 @@ namespace Amonic.Pages.Models
             if (TextBoxFirstName.Text.Length < 2)
                 messageError = "Введите имя";
             if (TextBoxLastName.Text.Length < 2)
-                messageError += "/n Введите фамилию";
+                messageError += "\n Введите фамилию";
             if (TextBoxPasportCountry.SelectedIndex == -1)
-                messageError += "/n Выберите страну паспорта";
+                messageError += "\n Выберите страну паспорта";
             if (TextBoxPasportNum.Text.Length != 6)
-                messageError += "/n Не корректно введен номер паспорта";
+                messageError += "\n Не корректно введен номер паспорта";
             if (TextBoxPhone.Text.Length != 12)
-                messageError += "/n Телефон должен состоять из 12 сиволов";
+                messageError += "\n Телефон должен состоять из 12 сиволов";
             if(messageError.Length < 2)
             {
-                Tickets newTicket = new Tickets();
-                newTicket.UserID = CurrentUser.ID;
-                newTicket.ScheduleID = schedulesToSelect.ID;
-                newTicket.CabinTypeID = idCabainSelect;
-                newTicket.Firstname = TextBoxFirstName.Text;
-                newTicket.Lastname = TextBoxLastName.Text;
-                newTicket.Phone = TextBoxPhone.Text;
-                newTicket.PassportNumber = TextBoxPasportNum.Text;
-                newTicket.PassportCountryID = int.Parse(TextBoxPasportCountry.SelectedValue.ToString());
-                newTicket.BookingReference = TextBoxLastName.Text[0] + TextBoxFirstName.Text;
-                newTicket.Confirmed = true;
+                Tickets newTicketTo = new Tickets();
+                newTicketTo.UserID = CurrentUser.ID;
+                newTicketTo.Users = AmonicEntities.GetContext().Users.Find(CurrentUser.ID);
+                newTicketTo.Schedules = schedulesToSelect;
+                newTicketTo.ScheduleID = schedulesToSelect.ID;
+                newTicketTo.CabinTypeID = idCabainSelect;
+                newTicketTo.Firstname = TextBoxFirstName.Text;
+                newTicketTo.Lastname = TextBoxLastName.Text;
+                newTicketTo.Phone = TextBoxPhone.Text;
+                newTicketTo.PassportNumber = TextBoxPasportNum.Text;
+                newTicketTo.PassportCountryID = int.Parse(TextBoxPasportCountry.SelectedValue.ToString());
+                newTicketTo.BookingReference = TextBoxLastName.Text[0] + TextBoxFirstName.Text;
+                newTicketTo.Confirmed = true;
 
-                DataGridPassager.Items.Add(newTicket);
+                DataGridPassager.Items.Add(newTicketTo);
 
                 if (schedulesOUTSelect != null)
                 {
-                    newTicket.UserID = CurrentUser.ID;
-                    newTicket.ScheduleID = schedulesToSelect.ID;
-                    newTicket.CabinTypeID = idCabainSelect;
-                    newTicket.Firstname = TextBoxFirstName.Text;
-                    newTicket.Lastname = TextBoxLastName.Text;
-                    newTicket.Phone = TextBoxPhone.Text;
-                    newTicket.PassportNumber = TextBoxPasportNum.Text;
-                    newTicket.PassportCountryID = int.Parse(TextBoxPasportCountry.SelectedValue.ToString());
-                    newTicket.BookingReference = TextBoxLastName.Text[0] + TextBoxFirstName.Text;
-                    newTicket.Confirmed = true;
+                    Tickets newTicketFrom = new Tickets();
+                    newTicketFrom.Users = AmonicEntities.GetContext().Users.Find(CurrentUser.ID);
+                    newTicketFrom.UserID = CurrentUser.ID;
+                    newTicketFrom.CabinTypeID = idCabainSelect;
+                    newTicketFrom.Firstname = TextBoxFirstName.Text;
+                    newTicketFrom.Lastname = TextBoxLastName.Text;
+                    newTicketFrom.Phone = TextBoxPhone.Text;
+                    newTicketFrom.PassportNumber = TextBoxPasportNum.Text;
+                    newTicketFrom.PassportCountryID = int.Parse(TextBoxPasportCountry.SelectedValue.ToString());
+                    newTicketFrom.BookingReference = TextBoxLastName.Text[0] + TextBoxFirstName.Text;
+                    newTicketFrom.Schedules = schedulesOUTSelect;
+                    newTicketFrom.ScheduleID = schedulesOUTSelect.ID;
 
-                    DataGridPassager.Items.Add(newTicket);
+                    DataGridPassager.Items.Add(newTicketFrom);
                 }
 
             }

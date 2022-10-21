@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Amonic.Pages.Models"
         mc:Ignorable="d"
-        Title="BlockTicket" Height="450" Width="610" MaxHeight="450" MaxWidth="610" MinHeight="450" MinWidth="610">
+        Title="BlockTicket" Height="450" Width="610" MaxHeight="450" MaxWidth="610" MinHeight="450" MinWidth="630">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
@@ -93,7 +93,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Firstname" Binding="{Binding Firstname}" Width="90"/>
                     <DataGridTextColumn Header="LastName" Binding="{Binding Lastname}" Width="90"/>
-                    <DataGridTextColumn Header="Birthday" Binding="{Binding Users.Birthdate, StringFormat={}{0:dd/MM/yyyy}}" Width="70"/>
+                    <DataGridTextColumn IsReadOnly="True" Width="*" Header="Date flight" Binding="{Binding Schedules.Date, StringFormat={}{0:dd/MM/yyyy}}"/>
                     <DataGridTextColumn Header="Pasport number" Binding="{Binding PassportNumber}" Width="*"/>
                     <DataGridTextColumn Header="Code country" Binding="{Binding PassportCountryID}" Width="90"/>
                     <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="*"/>
