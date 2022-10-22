@@ -41,6 +41,8 @@
 
 </details>
 
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&width=435&lines=%D0%9F%D0%BE%D0%BC%D0%B5%D0%BC%D1%83+%D0%9C%D0%BE%D1%80%D0%B8%D1%81%2C+%D0%B1%D1%8B%D0%BB+%D0%B3%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC)](https://git.io/typing-svg)
+
 
 # Скриншоты готового решения для компании «Глазки»
 ## 1 Сессия
