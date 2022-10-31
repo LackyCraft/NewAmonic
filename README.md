@@ -3,6 +3,8 @@
 Задание DijitalSkills 2017 года
 [Ссылка на задание](https://drive.google.com/drive/folders/1OKoP556_mWiUolI2QNZAdXdwzvIbvnCM?usp=sharing)
 
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&width=435&lines=%D0%9F%D0%BE%D0%BC%D0%B5%D0%BC%D1%83+%D0%9C%D0%BE%D1%80%D0%B8%D1%81%2C+%D0%B1%D1%8B%D0%BB+%D0%B3%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC)](https://git.io/typing-svg)
+
 # Описание задания
 <details>
   <summary>Сессия 1 ✅</summary>
@@ -41,14 +43,22 @@
 
 </details>
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&width=435&lines=%D0%9F%D0%BE%D0%BC%D0%B5%D0%BC%D1%83+%D0%9C%D0%BE%D1%80%D0%B8%D1%81%2C+%D0%B1%D1%8B%D0%BB+%D0%B3%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC)](https://git.io/typing-svg)
-
 <details>
   <summary>Сессия 4 (выложена в отдельном <a href="https://github.com/LackyCraft/AmonicSession4">репозитории</a> ✅</summary>
  
 - ✅ Создание БД и импорт данных о проведенных опросах
 - ✅ Форма сумарного отчета
 - ✅ Форма подробного отчета (со всеми фильтрами)
+
+</details>
+
+<details>
+  <summary>Сессия 5 ✅</summary>
+ 
+- ✅ Поиск билетов
+  - ✅ Обработка ошибок некорректного ввода
+- ✅ Внесение изменений в билет (добавление новых услуг)
+- ❌ ОТЧЕТ О ДОПОЛНИТЕЛЬНЫХ УСЛУГАХ ДЛЯ ПОЛЕТА (мне было лень его делать)
 
 </details>
 
