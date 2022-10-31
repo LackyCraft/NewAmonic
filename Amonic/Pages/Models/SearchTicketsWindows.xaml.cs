@@ -37,12 +37,20 @@ namespace Amonic.Pages.Models
         {
             try
             {
-                searchTickets = AmonicEntities.GetContext().Tickets.Where(i => i.BookingReference == TextBoxCodeTickets.Text && i.Schedules.Date > DateTime.Now
+                // && i.Schedules.Date > DateTime.Now
+                //
+                searchTickets = AmonicEntities.GetContext().Tickets.Where(i => i.BookingReference == TextBoxCodeTickets.Text && i.Schedules.Date > DateTime.Today
                 ).ToList();
                 if (searchTickets.Count > 0)
                 {
                     StackPanelSearchTockets.Visibility = Visibility.Visible;
                     ComboBoxListTickeets.ItemsSource = searchTickets;
+                    GridInfo.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    GridInfo.Visibility = Visibility.Collapsed;
+                    MessageBox.Show("Билеты не были найдены");
                 }
             }
             catch
@@ -62,6 +70,7 @@ namespace Amonic.Pages.Models
                 TextBlockCabinClass.Text = (ComboBoxListTickeets.SelectedItem as Tickets).CabinTypes.Name;
 
                 List<Amenities> amenitiesList = AmonicEntities.GetContext().Amenities.ToList();
+                StackPanelAmentities.Children.Clear();
 
                 for (int i = 0; i < amenitiesList.Count; i++)
                 {

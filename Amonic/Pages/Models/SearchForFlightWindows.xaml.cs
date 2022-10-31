@@ -145,8 +145,9 @@ namespace Amonic.Pages.Models
 
                     Schedules selectSchedles = (DataGridTo.SelectedItems[0] as Schedules);
                     var listPassager = AmonicEntities.GetContext().Tickets.GroupBy(x => x.ScheduleID).Select(g => new { ScheduleID = g.Key, Summ = g.Count() }).ToList();
-
-                    int countPasseger = int.Parse(listPassager.Where(x => x.ScheduleID == selectSchedles.ID).ToList()[0].Summ.ToString());
+                    int countPasseger = 0;
+                    if (listPassager.Count != 0)
+                        countPasseger = int.Parse(listPassager.Where(x => x.ScheduleID == selectSchedles.ID).ToList()[0].Summ.ToString());
 
                     if (ComboBoxCabinType.SelectedIndex != -1) {
                         if (int.Parse(ComboBoxCabinType.SelectedValue.ToString()) == 1 && selectSchedles.Aircrafts.EconomySeats > countPasseger + PrintCountPassager) {
@@ -166,7 +167,7 @@ namespace Amonic.Pages.Models
                     }
                     else
                     {
-                        messageError += "\nНе выбран тип класса билета";
+                        messageError += "Не выбран тип класса билета";
                     }
 
 

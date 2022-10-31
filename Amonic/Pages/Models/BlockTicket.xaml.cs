@@ -71,33 +71,20 @@ namespace Amonic.Pages.Models
         private void ClickSaveTocket(object sender, RoutedEventArgs e)
         {
             decimal price = 0;
-            for (int i = 0; i < DataGridPassager.Items.Count;i++)
+            for (int i = 0; i < DataGridPassager.Items.Count; i++)
             {
                 Tickets newTickets = (DataGridPassager.Items[i] as Tickets);
-                //Tickets newTicket = new Tickets();
 
                 MessageBox.Show(newTickets.ScheduleID.ToString());
 
-                /*
-                newTicket.UserID = newTickets.UserID;
-                newTicket.ScheduleID = newTickets.Schedules.ID;
-                newTicket.CabinTypeID = newTickets.CabinTypeID;
-                newTicket.Firstname = newTickets.Firstname;
-                newTicket.Lastname = newTickets.Lastname;
-                newTicket.Phone = newTickets.Phone;
-                newTicket.PassportNumber = newTickets.PassportNumber;
-                newTicket.PassportCountryID = newTickets.PassportCountryID;
-                newTicket.BookingReference = newTickets.BookingReference;
-                newTicket.Confirmed = true; */
-                
                 AmonicEntities.GetContext().Tickets.Add(newTickets);
-                AmonicEntities.GetContext().SaveChanges(); 
-                if(idCabainSelect == 1)
+                AmonicEntities.GetContext().SaveChanges();
+                if (idCabainSelect == 1)
                     price += newTickets.Schedules.EconomyPrice;
                 if (idCabainSelect == 2)
-                    price += newTickets.Schedules.EconomyPrice*(1.35m);
+                    price += newTickets.Schedules.EconomyPrice * (1.35m);
                 if (idCabainSelect == 3)
-                    price += newTickets.Schedules.EconomyPrice * (1.35m)*1.3m;
+                    price += newTickets.Schedules.EconomyPrice * (1.35m) * 1.3m;
             }
             try
             {
@@ -108,7 +95,7 @@ namespace Amonic.Pages.Models
                 MessageError.PrintErrorDBConect();
             }
 
-            if(DataGridPassager.Items.Count > 0)
+            if (DataGridPassager.Items.Count > 0)
                 MessageBox.Show("Билеты были успешно забронированы, код брони:" + (DataGridPassager.Items[0] as Tickets).BookingReference);
             this.Close();
 
@@ -137,7 +124,7 @@ namespace Amonic.Pages.Models
                 messageError += "\n Не корректно введен номер паспорта";
             if (TextBoxPhone.Text.Length != 12)
                 messageError += "\n Телефон должен состоять из 12 сиволов";
-            if(messageError.Length < 2)
+            if (messageError.Length < 2)
             {
                 Tickets newTicketTo = new Tickets();
                 newTicketTo.UserID = CurrentUser.ID;
