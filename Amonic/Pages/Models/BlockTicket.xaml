@@ -99,11 +99,11 @@
                     <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <Button HorizontalAlignment="Right" Margin="0,0,15,0" Grid.Row="1" Height="20" Content="Remove passenger" Click="RemoveAddPassenger"/>
+            <Button HorizontalAlignment="Right" Margin="0,0,15,0" Grid.Row="1" Background="Red" Height="20" Content="Remove passenger" Click="RemoveAddPassenger"/>
         </Grid>
 
         <StackPanel HorizontalAlignment="Center" Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center">
-            <Button Content="Back to search for flights" Click="ClickBackSearch"/>
+            <Button Content="Back to search for flights" Click="ClickBackSearch" Background="Red"/>
             <Button Content="Confirm booking" Margin="15,0,0,0" Click="ClickSaveTocket"/>
         </StackPanel>
         

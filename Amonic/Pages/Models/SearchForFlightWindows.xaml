@@ -119,7 +119,7 @@
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <TextBox Width="50" x:Name="TextBoxCountPassager"/>
                 <TextBlock Text="Passager" Margin="15,0,0,0"/>
-                <Button Width="100" Content="Block" Margin="15,0,0,0" Click="ClickButtonBlock"/>
+                <Button Width="100" Content="Block" Margin="15,0,0,0" Click="ClickButtonBlock" Background="Red"/>
             </StackPanel>
         </Grid>
     </Grid>

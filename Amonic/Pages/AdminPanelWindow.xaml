@@ -15,12 +15,12 @@
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="15">
             <Button Content="Change Role" Click="ClickChangeRole"/>
-            <Button Content="Enable/Disable User" Margin="15,0,0,0" Click="statusUser"/>
+            <Button Content="Enable/Disable User" Margin="15,0,0,0" Click="statusUser" Background="Red"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Margin="15">
             <Button Content="AddUser" Width="100" VerticalAlignment="Center" Margin="15,0,0,0" Click="ClickAddUsers"/>
-            <Button Content="Exit" Width="100" VerticalAlignment="Center" Margin="15,0,0,0" Click="clickExit"/>
+            <Button Content="Exit" Width="100" VerticalAlignment="Center" Margin="15,0,0,0" Click="clickExit" Background="Red"/>
         </StackPanel>
 
         <Grid Grid.Row="1">

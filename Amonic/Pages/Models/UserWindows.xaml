@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,0,0,0">
-            <Button Height="20" Content="Exit" Click="ClickExit" Width="100" Margin="15,0,0,0"/>
+            <Button Height="20" Content="Exit" Click="ClickExit" Width="100" Margin="15,0,0,0" Background="Red"/>
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Row="1" Margin="15,0,0,0">

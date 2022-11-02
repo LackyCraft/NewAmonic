@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Amonic"
         mc:Ignorable="d"
         Title="Autorisation"
-        Height="450" Width="800">
+        Height="350" Width="350">
     <Grid Background="White">
 
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
@@ -24,7 +24,7 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0">
                 <Button Content="Login" Width="100" Click="ClickButtonLogin" x:Name="ButtonLogin"/>
-                <Button Content="Exit" Width="100" Margin="15,0,0,0" Click="ClickExit"/>
+                <Button Background="Red" Content="Exit" Width="100" Margin="15,0,0,0" Click="ClickExit"/>
             </StackPanel>
 
             <Button Content="SearchTickets" HorizontalAlignment="Right" Width="215" Margin="0,15,0,0" Click="ClickSearchTickets"/>

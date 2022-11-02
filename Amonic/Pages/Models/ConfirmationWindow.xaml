@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Amonic.Pages.Models"
         mc:Ignorable="d"
-        Title="ConfirmationWindow" MinHeight="400" MinWidth="400" MaxHeight="400" MaxWidth="400">
+        Title="ConfirmationWindow" MinHeight="130" MinWidth="170" MaxHeight="130" MaxWidth="170">
     <Grid>
         <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
@@ -21,7 +21,7 @@
 
             <StackPanel Orientation="Horizontal">
                 <Button Content="Issue" Click="ClickClose"/>
-                <Button Content="Close" Margin="15,0,0,0" Click="ClickClose"/>
+                <Button Content="Close" Margin="15,0,0,0" Click="ClickClose" Background="Red"/>
             </StackPanel>
 
         </StackPanel>
